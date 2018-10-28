@@ -3,23 +3,30 @@ package naakcii.by.api.category.controller;
 
 import naakcii.by.api.category.service.CategoryService;
 import naakcii.by.api.category.service.model.CategoryDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import naakcii.by.api.config.ApiConfigConstants;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequestMapping({"/category"})
+@RestController("/category")
 public class CategoryController {
 
-    @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
-    @GetMapping
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
+
+    @GetMapping(produces = ApiConfigConstants.API_V1_0)
     public List<CategoryDTO> findAllCategories() {
         return categoryService.findAll();
     }
+
+//    just for example multi versions api
+//    @GetMapping(produces = ApiConfigConstants.API_V1_1)
+//    public List<CategoryDTO> findAllCategoriesNew() {
+//        return categoryService.findAll();
+//    }
 
 }
