@@ -41,7 +41,7 @@ public class Category implements Serializable {
     @Column(name = "CATEGORY_ID")
     private Long id;
 
-    @Column(name = "CATEGORY_NAME")
+    @Column(name = "CATEGORY_NAME", length = 200)
     @NotNull
     @Size(min = 3, max = 45)
     @org.hibernate.annotations.NaturalId(mutable = true)

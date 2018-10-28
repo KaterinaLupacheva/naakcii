@@ -37,7 +37,7 @@ public class Chain implements Serializable {
 	@Column(name = "CHAIN_ID")
 	private Long id;
 	
-	@Column(name = "CHAIN_NAME")
+	@Column(name = "CHAIN_NAME", length = 100)
 	@NotNull
 	@Size(min = 3, max = 45)
 	@org.hibernate.annotations.NaturalId(mutable = true)
