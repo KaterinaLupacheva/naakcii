@@ -12,7 +12,7 @@ import java.util.List;
 @RestController("/category")
 public class CategoryController {
 
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
@@ -23,10 +23,10 @@ public class CategoryController {
         return categoryService.findAll();
     }
 
-//    just for example multi versions api
-//    @GetMapping(produces = ApiConfigConstants.API_V1_1)
-//    public List<CategoryDTO> findAllCategoriesNew() {
-//        return categoryService.findAll();
-//    }
+    //  just for example multi versions api
+    @GetMapping(produces = ApiConfigConstants.API_V1_1)
+    public List<CategoryDTO> findAllCategoriesNewAPiVersion() {
+        return categoryService.findAll();
+    }
 
 }
