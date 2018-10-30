@@ -27,7 +27,7 @@ public class Category implements Serializable {
     private static final long serialVersionUID = -1L;
 
     @Id
-    @GeneratedValue(generator = "ID_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CATEGORY_ID")
     private Long id;
 
@@ -54,5 +54,5 @@ public class Category implements Serializable {
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
             fetch = FetchType.LAZY
     )
-    private List<Subcategory> subcategories = new ArrayList<Subcategory>();
+    private List<Subcategory> subcategories = new ArrayList<>();
 }

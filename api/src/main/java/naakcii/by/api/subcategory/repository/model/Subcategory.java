@@ -25,7 +25,7 @@ public class Subcategory implements Serializable {
 	private static final long serialVersionUID = 4720680821468502372L;
 
 	@Id
-	@GeneratedValue(generator = "ID_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "SUBCATEGORY_ID")
 	private Long id;
 	
@@ -47,7 +47,7 @@ public class Subcategory implements Serializable {
 //	@org.hibernate.annotations.Cache(
 //			usage = org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE
 //	)
-	private List<Product> products = new ArrayList<Product>();
+	private List<Product> products = new ArrayList<>();
 	
 	@Column(name = "SUBCATEGORY_IS_ACTIVE")
 	@NotNull

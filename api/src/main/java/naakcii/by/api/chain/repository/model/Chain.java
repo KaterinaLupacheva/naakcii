@@ -25,7 +25,7 @@ public class Chain implements Serializable {
 	private static final long serialVersionUID = -4338838997190141797L;
 
 	@Id
-	@GeneratedValue(generator = "ID_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CHAIN_ID")
 	private Long id;
 	
@@ -53,7 +53,7 @@ public class Chain implements Serializable {
 	private String link;
 	
 	@OneToMany(mappedBy = "chain", fetch = FetchType.LAZY)
-	private Set<Action> actions = new HashSet<Action>();
+	private Set<Action> actions = new HashSet<>();
 	
 	public Chain() {
 		

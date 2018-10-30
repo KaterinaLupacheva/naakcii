@@ -3,22 +3,12 @@ package naakcii.by.api.product.repository.model;
 import naakcii.by.api.action.repository.model.Action;
 import naakcii.by.api.subcategory.repository.model.Subcategory;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -30,47 +20,47 @@ import javax.validation.constraints.Size;
 public class Product implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(generator = "ID_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PRODUCT_ID")
 	private Long id;
-	
+
 	@Column(name = "PRODUCT_NAME")
 	@NotNull
 	@Size(min = 3, max = 200)
 	private String name;
-	
+
 	@Column(name = "PRODUCT_IS_ACTIVE")
 	@NotNull
 	private boolean isActive;
-	
+
 	@Column(name = "PRODUCT_PICTURE")
 	@Size(max = 255)
 	private String picture;
-	
+
 	@Column(name = "PRODUCT_QUANTITY")
 	private double quantity;
-	
+
 	@Column(name = "PRODUCT_MEASURE")
 	@Size(max = 15)
 	private String measure;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "SUBCATEGORY_ID")
 	@NotNull
 	private Subcategory subcategory;
-	
+
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-	private Set<Action> actions = new HashSet<Action>();
-	
+	private Set<Action> actions = new HashSet<>();
+
 	public Product() {
-		
+
 	}
-	
+
 	public Product(String name, boolean isActive, Subcategory subcategory) {
 		this.name = name;
 		this.isActive = isActive;
