@@ -18,7 +18,7 @@ public class StatisticServiceImpl implements StatisticService {
 
     @Override
     public StatisticDTO getStatistic() {
-        StatisticDTO statisticDTO = statisticConverter.convert(statisticRepository.findById(1));
+        StatisticDTO statisticDTO = statisticConverter.convert(statisticRepository.findById((long) 1));
         return statisticDTO;
     }
 }
