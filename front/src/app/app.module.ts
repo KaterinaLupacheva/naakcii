@@ -46,6 +46,7 @@ import {FinalizePageGuard} from "./shared/guards/finalize-page.guard";
 import { TooltipDirective } from './shared/derectives/tooltip.directive';
 import {SessionStorageService} from "./shared/services/session-storage.service";
 import {UndiscountService} from "./shared/services/undiscount.service";
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 registerLocaleData(localeFr);
 
@@ -71,7 +72,8 @@ registerLocaleData(localeFr);
     FinalizePageComponent,
     HomeDiplomComponent,
     HomePartnersComponent,
-    TooltipDirective
+    TooltipDirective,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
