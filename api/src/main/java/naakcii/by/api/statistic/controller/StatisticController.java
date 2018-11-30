@@ -20,7 +20,7 @@ public class StatisticController {
 
 
     @GetMapping
-    public List<Statistic> getStatistic() {
+    public StatisticDTO getStatistic() {
         return (statisticService.getStatistic());
     }
 }

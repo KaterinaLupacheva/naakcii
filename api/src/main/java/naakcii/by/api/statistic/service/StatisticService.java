@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface StatisticService {
 
-    List<Statistic> getStatistic();
+   StatisticDTO getStatistic();
 }

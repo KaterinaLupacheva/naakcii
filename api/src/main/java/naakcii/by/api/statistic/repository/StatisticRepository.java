@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface StatisticRepository extends CrudRepository<Statistic, Long> {
 
     List<Statistic> findAll();
+
+    Statistic findOneById(Long id);
 }
